@@ -1,4 +1,4 @@
-package com.pig1et.study.producer9002.controller;
+package com.pig1et.study.producer9003.controller;
 
 import com.pig1et.study.commonapi.service.HelloService;
 import lombok.extern.slf4j.Slf4j;
@@ -21,7 +21,7 @@ public class HelloController {
     private HelloService helloService;
 
     @GetMapping("say")
-    public Object MethodA(String str, String comeFrom) {
+    public String MethodA(String str, String comeFrom) {
         log.info("【hello/say】comeFrom:{}", comeFrom);
         return helloService.methodA(str);
     }
