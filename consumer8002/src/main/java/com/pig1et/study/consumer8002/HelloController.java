@@ -1,4 +1,4 @@
-package com.pig1et.study.consumer8001.controller;
+package com.pig1et.study.consumer8002;
 
 import com.pig1et.study.commonapi.service.HelloService;
 import lombok.extern.slf4j.Slf4j;
@@ -33,6 +33,6 @@ public class HelloController {
     @GetMapping("/methodB")
     public Object methodB(String str) {
         // 接收数据尽量不要用Object接，返回值是个String的时候，前三位是UTF8的标记，Object转换有错误
-        return restTemplate.getForObject("http://producer/hello/say?comeFrom=consumer8001&str=" + str, String.class);
+        return restTemplate.getForObject("http://producer/hello/say?comeFrom=consumer8002&str=" + str, String.class);
     }
 }
