@@ -1,4 +1,4 @@
-package com.pig1et.study.consumer8002;
+package com.pig1et.study.consumer8002.controller;
 
 import com.pig1et.study.commonapi.service.HelloService;
 import lombok.extern.slf4j.Slf4j;
