@@ -11,10 +11,12 @@ import org.springframework.context.annotation.Configuration;
  * @create: 2020-11-10 17:11
  **/
 @Configuration
-public class rule {
+public class Rule {
 
     @Bean
     public IRule getRibbonRule() {
-        return new RandomRule();
+        System.out.println("11111111111111111111111111111111111111111");
+//        return new RandomRule();
+        return new CustomLoadBalanceRule();
     }
 }
