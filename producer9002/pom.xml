@@ -8,9 +8,9 @@
         <version>0.0.1-SNAPSHOT</version>
     </parent>
     <groupId>com.pig1et.study</groupId>
-    <artifactId>producer9003</artifactId>
+    <artifactId>producer9002</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>producer9003</name>
+    <name>producer9002</name>
     <description>Demo project for Spring Boot</description>
 
     <properties>
