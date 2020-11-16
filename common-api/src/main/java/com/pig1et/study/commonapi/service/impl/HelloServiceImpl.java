@@ -21,7 +21,7 @@ public class HelloServiceImpl implements HelloService {
     @Override
     public String methodB(String str) {
         try {
-            TimeUnit.SECONDS.sleep(3);
+            TimeUnit.SECONDS.sleep(2);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
