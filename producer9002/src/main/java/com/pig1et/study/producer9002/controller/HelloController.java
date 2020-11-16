@@ -29,4 +29,9 @@ public class HelloController {
         log.info("【hello/say】comeFrom:{}", comeFrom);
         return helloService.methodA(str) + "invoke Server:" + port + ",come from Server:" + comeFrom;
     }
+
+    @GetMapping("timeout")
+    public String methodB(String str, String comeFrom) {
+        return helloService.methodB(str) + "invoke Server:" + port + ",come from Server:" + comeFrom;
+    }
 }

@@ -8,4 +8,6 @@ package com.pig1et.study.commonapi.service;
 public interface HelloService {
 
     String methodA(String str);
+
+    String methodB(String str);
 }

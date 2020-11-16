@@ -19,4 +19,7 @@ public interface HelloProducerService {
     @GetMapping("say")
     String methodA(@RequestParam String str, @RequestParam String comeFrom);
 
+    @GetMapping("timeout")
+    String methodB(@RequestParam String str, @RequestParam String comeFrom);
+
 }
