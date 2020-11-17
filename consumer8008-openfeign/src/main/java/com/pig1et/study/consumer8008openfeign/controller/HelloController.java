@@ -1,6 +1,7 @@
 package com.pig1et.study.consumer8008openfeign.controller;
 
 import com.netflix.hystrix.HystrixCommandProperties;
+import com.netflix.hystrix.contrib.javanica.annotation.DefaultProperties;
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixProperty;
 import com.pig1et.study.consumer8008openfeign.service.HelloProducerService;
@@ -20,6 +21,11 @@ import org.springframework.web.bind.annotation.RestController;
 @Slf4j
 @RestController
 @RequestMapping("/hello")
+/**
+ * 开启了@DefaultProperties注解之后，以下所有方法只要加了@HystrixCommand都会使用默认配置，
+ * 没加@HystrixCommand不启用熔断，如果有单独配置，单独配置优先
+ */
+@DefaultProperties(defaultFallback = "errorMethod")
 @RequiredArgsConstructor(onConstructor_ = {@Autowired})
 public class HelloController {
 
@@ -28,8 +34,8 @@ public class HelloController {
 
     private final HelloProducerService helloProducerService;
 
+    @HystrixCommand
     @GetMapping("/methodA")
-    @HystrixCommand(fallbackMethod = "errorMethod")
     public String methodA(String str) {
 
         return helloProducerService.methodA(str, port);
@@ -41,9 +47,9 @@ public class HelloController {
      * @param comeFrom
      * @return
      */
-    @HystrixCommand(fallbackMethod = "errorMethod", commandProperties = {
+    @HystrixCommand(commandProperties = {
             // 最长等待时间
-            @HystrixProperty(name = "execution.isolation.thread.timeoutInMilliseconds", value = "2000")
+            @HystrixProperty(name = "execution.isolation.thread.timeoutInMilliseconds", value = "3000")
     })
     @GetMapping("/methodB")
     public String methodB(String str) {
@@ -51,10 +57,13 @@ public class HelloController {
         return helloProducerService.methodB(str, port);
     }
 
-    public String errorMethod(String str) {
-        return "o(╥﹏╥)o!";
+    @GetMapping("/methodC")
+    public String methodC(String str) {
+
+        return helloProducerService.methodA(str, port);
     }
 
-
-
+    public String errorMethod() {
+        return Thread.currentThread().getName() + "o(╥﹏╥)o!";
+    }
 }

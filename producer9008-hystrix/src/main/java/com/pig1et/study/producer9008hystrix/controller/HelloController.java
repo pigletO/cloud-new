@@ -27,7 +27,7 @@ public class HelloController {
     @Autowired
     private HelloService helloService;
 
-    @HystrixCommand(fallbackMethod = "errorMethod")
+//    @HystrixCommand(fallbackMethod = "errorMethod")
     @GetMapping("say")
     public String MethodA(String str, String comeFrom) {
         log.info("【hello/say】comeFrom:{}", comeFrom);
@@ -41,7 +41,7 @@ public class HelloController {
      * @return
      */
     @HystrixCommand(fallbackMethod = "errorMethod", commandProperties = {
-            @HystrixProperty(name = "execution.isolation.thread.timeoutInMilliseconds", value = "1000")
+            @HystrixProperty(name = "execution.isolation.thread.timeoutInMilliseconds", value = "10000")
     })
     @GetMapping("timeout")
     public String methodB(String str, String comeFrom) {
@@ -49,6 +49,6 @@ public class HelloController {
     }
 
     public String errorMethod(String str, String comeFrom) {
-        return "o(╥﹏╥)o:" + port;
+        return Thread.currentThread().getName() + "o(╥﹏╥)o:" + port;
     }
 }

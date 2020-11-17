@@ -1,7 +1,6 @@
 package com.pig1et.ribbon;
 
 import com.netflix.loadbalancer.IRule;
-import com.netflix.loadbalancer.RandomRule;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -16,7 +15,7 @@ public class Rule {
     @Bean
     public IRule getRibbonRule() {
         System.out.println("11111111111111111111111111111111111111111");
-        return new RandomRule();
-//        return new CustomLoadBalanceRule();
+//        return new RandomRule();
+        return new CustomLoadBalanceRule();
     }
 }
