@@ -28,4 +28,12 @@ public class HelloServiceImpl implements HelloService {
         }
         return str;
     }
+
+    @Override
+    public String mehtodD(Integer integer) {
+        if (integer < 0) {
+            throw new RuntimeException("不能为负数！！");
+        }
+        return "调用成功，入参id:" + integer;
+    }
 }

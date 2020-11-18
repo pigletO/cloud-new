@@ -27,4 +27,7 @@ public interface HelloProducerService {
     @GetMapping("hello/timeout")
     String methodB(@RequestParam String str, @RequestParam String comeFrom);
 
+    @GetMapping("hello/circuitBreaker")
+    String methodD(@RequestParam Integer integer, @RequestParam String comeFrom);
+
 }

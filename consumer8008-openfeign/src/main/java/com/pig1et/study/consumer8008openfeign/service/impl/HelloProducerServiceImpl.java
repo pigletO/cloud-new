@@ -13,11 +13,16 @@ public class HelloProducerServiceImpl implements HelloProducerService {
 
     @Override
     public String methodA(String str, String comeFrom) {
-        return "o(╥﹏╥)o methodA失败了！";
+        return "Conusmer端：o(╥﹏╥)o methodA失败了！";
     }
 
     @Override
     public String methodB(String str, String comeFrom) {
-        return "o(╥﹏╥)o methodB失败了！";
+        return "Conusmer端：o(╥﹏╥)o methodB失败了！";
+    }
+
+    @Override
+    public String methodD(Integer integer, String comeFrom) {
+        return "Conusmer端：o(╥﹏╥)o methodD失败了！";
     }
 }

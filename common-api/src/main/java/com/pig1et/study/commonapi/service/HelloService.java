@@ -10,4 +10,6 @@ public interface HelloService {
     String methodA(String str);
 
     String methodB(String str);
+
+    String mehtodD(Integer integer);
 }

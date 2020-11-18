@@ -63,6 +63,16 @@ public class HelloController {
         return helloProducerService.methodA(str, port);
     }
 
+    /**
+     * 验证Hystrix熔断机制
+     * @param integer
+     * @return
+     */
+    @GetMapping("/methodD")
+    public String methodD(Integer integer) {
+        return helloProducerService.methodD(integer, port);
+    }
+
     public String errorMethod() {
         return Thread.currentThread().getName() + "o(╥﹏╥)o!";
     }
