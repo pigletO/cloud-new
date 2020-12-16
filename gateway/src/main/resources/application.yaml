@@ -1,0 +1,41 @@
+
+server:
+  port: 80
+
+spring:
+  application:
+    name: gateway
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          # 开启链接注册中心，做动态路由
+          enabled: true
+      routes:
+        - id: consumer1
+          # 指明微服务名称 lb loadBalance
+          uri: lb://consumer
+          #uri: http://localhost:8008
+          predicates:
+            - Path=/hello/**
+  #            - Path=/hello/methodC
+  #        - id: consumer2
+  #          uri: http://localhost:8008
+  #          predicates:
+  #            - Path=/hello/methodB
+  #        - id: consumer3
+  #            uri: http://localhost:8008
+  #            predicates:
+  #              - Path=/hello/methodC
+  datasource:
+    druid:
+      driver-class-name: com.mysql.jdbc.Driver
+      url: jdbc:mysql://rm-2zeu5239ns0u12630vo.mysql.rds.aliyuncs.com:3306/cloud?characterEncoding=utf-8&serverTimezone=Asia/Shanghai&useSSL=false
+      username: masterdjs
+      password: qwe987ZXC
+eureka:
+  instance:
+    instance-id: gateway-server
+  client:
+    service-url:
+      defaultZone: http://eureka7001.com:7001/eureka

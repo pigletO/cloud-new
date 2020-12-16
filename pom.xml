@@ -3,7 +3,20 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <modules>
-        <module>common-apis</module>
+        <module>common-api</module>
+        <module>consumer8001</module>
+        <module>consumer8002</module>
+        <module>consumer8004</module>
+        <module>consumer8006</module>
+        <module>consumer8008-openfeign</module>
+        <module>eureka-server7001</module>
+        <module>eureka-server7002</module>
+        <module>gateway</module>
+        <module>producer9001</module>
+        <module>producer9002</module>
+        <module>producer9004</module>
+        <module>producer9006</module>
+        <module>producer9008-hystrix</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>
@@ -113,7 +126,7 @@
             <dependency>
                 <groupId>com.alibaba.cloud</groupId>
                 <artifactId>spring-cloud-alibaba-dependencies</artifactId>
-                <version>2.1.0.RELEASE</version>
+                <version>2.1.2.RELEASE</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
