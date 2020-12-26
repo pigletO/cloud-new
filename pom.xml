@@ -11,12 +11,15 @@
         <module>consumer8008-openfeign</module>
         <module>eureka-server7001</module>
         <module>eureka-server7002</module>
+        <module>nacos-server-7005</module>
+        <module>nacos-server-7006</module>
         <module>gateway</module>
         <module>producer9001</module>
         <module>producer9002</module>
         <module>producer9004</module>
         <module>producer9006</module>
         <module>producer9008-hystrix</module>
+        <module>producer9010-sentinel</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>

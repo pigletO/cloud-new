@@ -15,7 +15,9 @@ public class HelloServiceImpl implements HelloService {
 
     @Override
     public String methodA(String str) {
-        int i = 10/0;
+
+//        异常
+//        int i = 10/0;
         return str;
     }
 
